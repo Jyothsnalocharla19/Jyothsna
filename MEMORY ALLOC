@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *arr, n, i, newSize;
+
+    // Initial size
+    printf("Enter initial number of elements: ");
+    scanf("%d", &n);
+
+    // Allocate memory using malloc
+    arr = (int *)malloc(n * sizeof(int));
+
+    if(arr == NULL) {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
+
+    // Input elements
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Resize array using realloc
+    printf("Enter new size: ");
+    scanf("%d", &newSize);
+
+    arr = (int *)realloc(arr, newSize * sizeof(int));
+
+    if(arr == NULL) {
+        printf("Reallocation failed\n");
+        return 1;
+    }
+
+    // Input new elements if size increased
+    if(newSize > n) {
+        printf("Enter additional elements:\n");
+        for(i = n; i < newSize; i++) {
+            scanf("%d", &arr[i]);
+        }
+    }
+
+    // Display elements
+    printf("Array elements after realloc:\n");
+    for(i = 0; i < newSize; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    // Free allocated memory
+    free(arr);
+
+    return 0;
+}
