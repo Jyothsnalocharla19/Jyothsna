@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+    int arr[100], n, i;
+    int *ptr;
+
+    // Input number of elements
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    // Input array elements
+    printf("Enter elements:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Assign pointer to array
+    ptr = arr;
+
+    // Access elements using pointer
+    printf("Array elements using pointer:\n");
+    for(i = 0; i < n; i++) {
+        printf("%d ", *(ptr + i));
+    }
+
+    return 0;
+}
