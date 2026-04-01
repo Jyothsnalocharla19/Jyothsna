@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+// Recursive function to find factorial
+int fact(int n) {
+    if(n == 0 || n == 1)
+        return 1;
+    else
+        return n * fact(n - 1);
+}
+
+// Function to calculate nCr
+int nCr(int n, int r) {
+    return fact(n) / (fact(r) * fact(n - r));
+}
+
+int main() {
+    int n, r, result;
+
+    // Input values
+    printf("Enter values of n and r (n > r): ");
+    scanf("%d %d", &n, &r);
+
+    // Calculate nCr
+    result = nCr(n, r);
+
+    // Display result
+    printf("nCr = %d", result);
+
+    return 0;
+}
